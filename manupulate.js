@@ -13,6 +13,10 @@ function setbackgroundbyid(paramsid) {
     const element = document.getElementById(paramsid);
     element.classList.add('bg-orange-400');
 }
+function removeBackgroundColorById(paramsid) {
+    const element =document.getElementById(paramsid);
+    element.classList.remove('bg-orange-400');
+}
 
 function getRandomAlphabet() {
     const alphabetString = 'abcdefghijklmnopqrstuvwxyz';
