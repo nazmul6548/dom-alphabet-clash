@@ -26,11 +26,31 @@ function handleKeyBoardButtonPress(event) {
 
     if (playerPressed === lowercaseAlphabet) {
         console.log("you get a point");
-        console.log("you have pressed corectly" ,lowercaseAlphabet);
+        // console.log("you have pressed corectly" ,lowercaseAlphabet);
+        const currentScoreElement = document.getElementById('current-score')
+        const currentElement = currentScoreElement.innerText;
+        const currentScore = parseInt(currentElement)
+        
+        
+        const newScore = currentScore + 1;
+        
+        // console.log(newScore);
+
+        currentScoreElement.innerText=newScore;
+
         removeBackgroundColorById(lowercaseAlphabet);
         continueGame();
     }else{
         console.log("you lose a point ,next time best try");
+        const currentLifeElement = document.getElementById('current-life');
+        const currentLifeText = currentLifeElement.innerText;
+        const currentLife = parseInt(currentLifeText);
+
+
+        const newlLife = currentLife -1;
+
+        currentLifeElement.innerText = newlLife;
+
     }
 
 }
