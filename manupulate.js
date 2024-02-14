@@ -24,6 +24,13 @@ function getTextElementValueId(elementid) {
     const value= parseInt(elementValueTaxt);
     return value;
 }
+
+function getElementTextbyId(param) {
+    const element = document.getElementById(param);
+    const text = element.innerText;
+    return text;
+}
+
 function setTextElementValueById(elementid) {
     const element =document.getElementById(elementid);
     element.innerText=value;

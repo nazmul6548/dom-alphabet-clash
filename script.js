@@ -1,6 +1,9 @@
 
 function handleKeyBoardButtonPress(event) {
     const playerPressed = event.key; 
+    if (playerPressed === 'Escape') {
+        gameover()
+    }
     
 
     const currentAlphabetElement = document.getElementById('randomLetter');
@@ -14,6 +17,7 @@ function handleKeyBoardButtonPress(event) {
         console.log(currenscore);
         const newScore = currenscore + 1;
         setTextElementValueById('current-score',newScore)
+        // 
         // console.log("you have pressed corectly" ,lowercaseAlphabet);
         // const currentScoreElement = document.getElementById('current-score')
         // const currentElement = currentScoreElement.innerText;
@@ -36,18 +40,18 @@ function handleKeyBoardButtonPress(event) {
         if (updateLife === 0) {
             gameover();
         }
-    //     const currentLifeElement = document.getElementById('current-life');
-    //     const currentLifeText = currentLifeElement.innerText;
-    //     const currentLife = parseInt(currentLifeText);
+        // const currentLifeElement = document.getElementById('current-life');
+        // const currentLifeText = currentLifeElement.innerText;
+        // const currentLife = parseInt(currentLifeText);
 
 
-    //     const newlLife = currentLife -1;
+        // const newlLife = currentLife -1;
 
-    //     currentLifeElement.innerText = newlLife;
+        // currentLifeElement.innerText = newlLife;
 
-    //     if (newlLife === 0) {
-    //         gameover();
-    //     }
+        // if (newlLife === 0) {
+        //     gameover();
+        // }
 
     }
 
@@ -64,8 +68,8 @@ function continueGame() {
 }
 function play() {
     hideElementById('home-screen')
-    hideElementsById('final-Score')
     showElementsById('play-screen')
+    hideElementsById('final-Score')
 // 
 
 setTextElementValueById('current-life',5)
@@ -76,5 +80,10 @@ setTextElementValueById('current-score',0)
 function gameover() {
     hideElementById('play-screen')
     showElementsById('final-Score');
+    const lastscore = getTextElementValueId('current-score');
+    console.log(lastscore);
+    setTextElementValueById('last-score',lastscore)
 }
-
+const currentAlphabet =getElementTextbyId('current-alphabet');
+// console.log(currentAlphabet);
+removeBackgroundColorById(currentAlphabet);
