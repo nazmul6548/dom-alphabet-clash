@@ -1,20 +1,4 @@
 
-// function handlekeybordkeyupEvent(event) {
-//     const playerPressed = event.key;
-//     console.log(playerPressed);
-
-//     const currentAlphabetElements = document.getElementById('randomLetter');
-//     const currentAlphabet = currentAlphabetElements.innerText;
-//     const tolowerCase = currentAlphabet.toLowerCase();
-//     // console.log(tolowerCase);
-//     if (playerPressed === tolowerCase) {
-//         console.log("you got point");
-//         continueGame();
-//     }else{
-//         console.log("please press the right key");
-//     }
-    
-// }
 function handleKeyBoardButtonPress(event) {
     const playerPressed = event.key; 
     
@@ -26,30 +10,44 @@ function handleKeyBoardButtonPress(event) {
 
     if (playerPressed === lowercaseAlphabet) {
         console.log("you get a point");
+        const currenscore =getTextElementValueId('current-score');
+        console.log(currenscore);
+        const newScore = currenscore + 1;
+        setTextElementValueById('current-score',newScore)
         // console.log("you have pressed corectly" ,lowercaseAlphabet);
-        const currentScoreElement = document.getElementById('current-score')
-        const currentElement = currentScoreElement.innerText;
-        const currentScore = parseInt(currentElement)
+        // const currentScoreElement = document.getElementById('current-score')
+        // const currentElement = currentScoreElement.innerText;
+        // const currentScore = parseInt(currentElement)
+        // const newScore = currenscore + 1;
         
         
-        const newScore = currentScore + 1;
         
-        // console.log(newScore);
+        // currentScoreElement.innerText=newScore;
+        // // console.log(newScore);
 
-        currentScoreElement.innerText=newScore;
-
-        removeBackgroundColorById(lowercaseAlphabet);
-        continueGame();
+        // removeBackgroundColorById(lowercaseAlphabet);
+        // continueGame();
     }else{
         console.log("you lose a point ,next time best try");
-        const currentLifeElement = document.getElementById('current-life');
-        const currentLifeText = currentLifeElement.innerText;
-        const currentLife = parseInt(currentLifeText);
+        const currentLife = getTextElementValueId('current-life');
+        const updateLife =currentLife - 1;
+        setTextElementValueById('current-life',updateLife);
+
+        if (updateLife === 0) {
+            gameover();
+        }
+    //     const currentLifeElement = document.getElementById('current-life');
+    //     const currentLifeText = currentLifeElement.innerText;
+    //     const currentLife = parseInt(currentLifeText);
 
 
-        const newlLife = currentLife -1;
+    //     const newlLife = currentLife -1;
 
-        currentLifeElement.innerText = newlLife;
+    //     currentLifeElement.innerText = newlLife;
+
+    //     if (newlLife === 0) {
+    //         gameover();
+    //     }
 
     }
 
@@ -66,7 +64,17 @@ function continueGame() {
 }
 function play() {
     hideElementById('home-screen')
+    hideElementsById('final-Score')
     showElementsById('play-screen')
+// 
+
+setTextElementValueById('current-life',5)
+setTextElementValueById('current-score',0)
+
     continueGame();
+}
+function gameover() {
+    hideElementById('play-screen')
+    showElementsById('final-Score');
 }
 

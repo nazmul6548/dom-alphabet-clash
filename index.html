@@ -94,9 +94,10 @@
             </section>
 
             <section class="card flex flex-col items-center justify-center min-h-screen ">
-                <div class="hidden text-center bg-[#ffffff33] p-10 rounded-xl">
-                    <h1 class="text-white anton-regular text-6xl pb-5">Score: 14</h1>
-                    <button class="btn text-black btn-ghost bg-white">Play Now</button>
+                <div id="final-Score" class="hidden text-center bg-[#ffffff33] p-10 rounded-xl">
+                    <h2 class="text-white text-3xl poppins-thin pb-2">Game Over!</h2>
+                    <h1 class="text-white anton-regular text-6xl pb-5">Score: <span id="last-score">14</span></h1>
+                    <button onclick="play()" class="btn text-black btn-ghost bg-white">Play Again</button>
                     <p class="text-white pt-5">Practice will make you Pro</p>
 
                 </div>
