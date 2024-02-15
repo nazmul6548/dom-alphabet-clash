@@ -1,5 +1,5 @@
-function hideElementById(paramsid) {
-    const element = document.getElementById(paramsid);
+function hideElementById(elementId) {
+    const element = document.getElementById(elementId);
     element.classList.add('hidden');
     
 }
@@ -9,7 +9,7 @@ function showElementsById(paramsid) {
     element.classList.remove('hidden');
 }
 
-function setbackgroundbyid(paramsid) {
+function setbackgroundColorbyid(paramsid) {
     const element = document.getElementById(paramsid);
     element.classList.add('bg-orange-400');
 }
@@ -24,6 +24,10 @@ function getTextElementValueId(elementid) {
     const value= parseInt(elementValueTaxt);
     return value;
 }
+function setTextElementValueById(elementid,value) {
+    const element =document.getElementById(elementid);
+    element.innerText=value;
+}
 
 function getElementTextbyId(param) {
     const element = document.getElementById(param);
@@ -31,10 +35,6 @@ function getElementTextbyId(param) {
     return text;
 }
 
-function setTextElementValueById(elementid) {
-    const element =document.getElementById(elementid);
-    element.innerText=value;
-}
 
 
 function getRandomAlphabet() {
@@ -48,7 +48,7 @@ function getRandomAlphabet() {
     // console.log(index);
 
     const alphabet=alphabets[index];
-    console.log(index,alphabet);
+    // console.log(index,alphabet);
 
     return alphabet;
 }
