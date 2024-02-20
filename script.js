@@ -1,8 +1,8 @@
 const audio = new Audio()
-const isGamePlay = false
+let isGamePlayOn = false
 
 function handleKeyBoardButtonPress(event) {
-  if (isGamePlay === false)return
+  if (isGamePlayOn === false) return
   const playerPressed = event.key;
   if (playerPressed === "Escape") {
     gameover();
@@ -52,10 +52,10 @@ function play() {
   hideElementById("final-Score");
   showElementsById("play-ground");
   //
-  isGamePlay = true;
-
+  
   setTextElementValueById("current-life", 5);
   setTextElementValueById("current-score", 0);
+  isGamePlayOn = true;
   continueGame();
 }
 function gameover() {
@@ -68,4 +68,5 @@ function gameover() {
   const currentAlphabet = getElementTextbyId("randomLetter");
 
   removeBackgroundColorById(currentAlphabet);
+  isGamePlayOn=false;
 }
