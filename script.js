@@ -1,4 +1,8 @@
+const audio = new Audio()
+const isGamePlay = false
+
 function handleKeyBoardButtonPress(event) {
+  if (isGamePlay === false)return
   const playerPressed = event.key;
   if (playerPressed === "Escape") {
     gameover();
@@ -10,6 +14,8 @@ function handleKeyBoardButtonPress(event) {
 
   if (playerPressed === expectedAlphabet) {
     console.log("you get a point");
+    audio.src ="./audio/mixkit-classic-click-1117.wav";
+    audio.play();
 
     const currenscore = getTextElementValueId("current-score");
 
@@ -23,6 +29,8 @@ function handleKeyBoardButtonPress(event) {
     const currentLife = getTextElementValueId("current-life");
     const updateLife = currentLife - 1;
     setTextElementValueById("current-life", updateLife);
+    audio.src ="./audio/mixkit-arcade-game-jump-coin-216.wav";
+    audio.play();
 
     if (updateLife === 0) {
       gameover();
@@ -39,14 +47,15 @@ function continueGame() {
   setbackgroundColorbyid(alphabet);
 }
 function play() {
+  
   hideElementById("home-screen");
   hideElementById("final-Score");
   showElementsById("play-ground");
   //
+  isGamePlay = true;
 
   setTextElementValueById("current-life", 5);
   setTextElementValueById("current-score", 0);
-
   continueGame();
 }
 function gameover() {
